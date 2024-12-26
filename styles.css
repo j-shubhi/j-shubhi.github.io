@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'MyCustomFont'; /* Define the name for the font */
-    src: url('/home/j-shubhi/Shubhi/font/La Obrige.otf') format('opentype'); /* Link to your .otf file */
+    src: url('font/La Obrige.otf') format('opentype'); /* Link to your .otf file */
     font-weight: normal; /* Optional: specify the weight */
     font-style: normal;  /* Optional: specify the style */
 }
