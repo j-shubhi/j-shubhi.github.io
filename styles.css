@@ -1,11 +1,12 @@
 body {
-    font-family: 'La Obrige', sans-serif;
+    font-family: 'MyCustomFont';
+    src: url('/home/j-shubhi/Shubhi/font/La Obrige.otf') format('opentype');
     text-align: center;
     padding: 20px;
-    background-color: #f4f4f4;
+    background-color: #a49870;
     
 }
 h1 {
-    color: #333;
+    color: #795312;
 }
 
