@@ -1,3 +1,4 @@
 # Shubhi
 Portfolio of Shubhi Jain
-*j-shubhi.github.io*
+
+j-shubhi.github.io
