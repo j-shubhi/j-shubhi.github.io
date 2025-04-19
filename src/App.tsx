@@ -8,10 +8,12 @@ import Footer from './components/Footer';
 import VirtualAssistant from './components/VirtualAssistant';
 import MRPortfolioViewer from './components/MRPortfolioViewer';
 import Navbar from './components/Navbar';
+import SparklingCursor from './components/SparklingCursor';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
+      <SparklingCursor />
       <Navbar />
       <div className="ml-20 transition-all duration-300">
         <section id="hero">

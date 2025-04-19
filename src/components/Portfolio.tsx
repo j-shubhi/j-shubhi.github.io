@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
@@ -30,6 +30,19 @@ const categories = ['All', 'UI/UX', 'Branding', 'Illustration'];
 export default function Portfolio() {
   const [activeCategory, setActiveCategory] = useState('All');
   const [hoveredId, setHoveredId] = useState<number | null>(null);
+  const [deviceTilt, setDeviceTilt] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleDeviceMotion = (event: DeviceMotionEvent) => {
+      const { gamma, beta } = event;
+      if (gamma !== null && beta !== null) {
+        setDeviceTilt({ x: gamma / 90, y: beta / 90 });
+      }
+    };
+
+    window.addEventListener('deviceorientation', handleDeviceMotion);
+    return () => window.removeEventListener('deviceorientation', handleDeviceMotion);
+  }, []);
 
   const filteredProjects = activeCategory === 'All'
     ? projects
@@ -75,8 +88,8 @@ export default function Portfolio() {
                 initial={{ opacity: 0, rotateY: -15, translateZ: -100 }}
                 animate={{ 
                   opacity: 1, 
-                  rotateY: 0, 
-                  translateZ: 0,
+                  rotateY: deviceTilt.x * 10, 
+                  translateZ: deviceTilt.y * 50,
                   transition: { type: "spring", damping: 20 }
                 }}
                 exit={{ opacity: 0, rotateY: 15, translateZ: -100 }}

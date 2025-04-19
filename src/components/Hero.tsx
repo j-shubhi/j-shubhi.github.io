@@ -14,7 +14,7 @@ export default function Hero() {
         </p>
         <div className="space-x-4">
           <a href="#portfolio" className="bg-purple-600 text-white px-8 py-3 rounded-full hover:bg-purple-700 transition-colors">
-            View Portfolio
+            View My Work
           </a>
           <a href="#contact" className="border-2 border-purple-600 text-purple-600 px-8 py-3 rounded-full hover:bg-purple-600 hover:text-white transition-colors">
             Contact Me

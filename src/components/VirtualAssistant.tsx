@@ -11,7 +11,7 @@ const messages: Message[] = [
   {
     text: "Hi! I'm Luna, Shubhi's virtual assistant. How can I help you today?",
     links: [
-      { text: "View Portfolio", href: "#portfolio" },
+      { text: "View My Work", href: "#portfolio" },
       { text: "Contact Shubhi", href: "#contact" },
       { text: "Learn More", href: "#about" }
     ]
