@@ -1,55 +1,28 @@
 import React from 'react';
-import { Figma, Code, PenTool, Palette } from 'lucide-react';
+import { Skills } from '../data/skills';
+import SkillCard from './SkillCard';
 
-const skills = [
-  {
-    name: 'UI Design',
-    level: 95,
-    icon: Figma,
-  },
-  {
-    name: 'UX Research',
-    level: 90,
-    icon: Code,
-  },
-  {
-    name: 'Illustration',
-    level: 85,
-    icon: PenTool,
-  },
-  {
-    name: 'Branding',
-    level: 88,
-    icon: Palette,
-  },
-];
-
-export default function Skills() {
+const SkillsSection: React.FC = () => {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-4">
-        <h2 className="text-4xl font-bold text-center mb-12">Skills & Expertise</h2>
-        <div className="grid md:grid-cols-2 gap-8">
-          {skills.map((skill) => {
-            const Icon = skill.icon;
-            return (
-              <div key={skill.name} className="bg-gray-50 p-6 rounded-xl">
-                <div className="flex items-center mb-4">
-                  <Icon className="w-6 h-6 text-purple-600 mr-3" />
-                  <h3 className="text-xl font-semibold">{skill.name}</h3>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2.5">
-                  <div
-                    className="bg-purple-600 h-2.5 rounded-full transition-all duration-500"
-                    style={{ width: `${skill.level}%` }}
-                  ></div>
-                </div>
-                <span className="text-sm text-gray-600 mt-2 inline-block">{skill.level}%</span>
-              </div>
-            );
-          })}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+            My Skills
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Explore my technical expertise and project experience through this interactive showcase
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {Skills.map((skill) => (
+            <SkillCard key={skill.id} skill={skill} />
+          ))}
         </div>
       </div>
     </section>
   );
-}
+};
+
+export default SkillsSection;
