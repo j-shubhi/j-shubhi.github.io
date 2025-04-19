@@ -7,18 +7,32 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import VirtualAssistant from './components/VirtualAssistant';
 import MRPortfolioViewer from './components/MRPortfolioViewer';
+import Navbar from './components/Navbar';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
-      <Hero />
-      <About />
-      <Portfolio />
-      <Skills />
-      <Contact />
-      <Footer />
-      <VirtualAssistant />
-      <MRPortfolioViewer />
+      <Navbar />
+      <div className="ml-20 transition-all duration-300">
+        <section id="hero">
+          <Hero />
+        </section>
+        <section id="about">
+          <About />
+        </section>
+        <section id="portfolio">
+          <Portfolio />
+        </section>
+        <section id="skills">
+          <Skills />
+        </section>
+        <section id="contact">
+          <Contact />
+        </section>
+        <Footer />
+        <VirtualAssistant />
+        <MRPortfolioViewer />
+      </div>
     </div>
   );
 }

@@ -16,21 +16,21 @@ export default function About() {
           <div>
             <h2 className="text-4xl font-bold mb-6">About Me</h2>
             <p className="text-gray-600 mb-6">
-              With over 8 years of experience in digital design, I specialize in creating user-centered experiences that delight and inspire. My approach combines aesthetic excellence with functional design thinking.
+            I’m a UI/UX Designer & Visual Artist with a background in Computer Science. I blend creative storytelling with functional design to craft intuitive interfaces and visually engaging digital experiences. From designing seamless user flows to creating pixel-perfect game art, I focus on building user-centered, impactful designs that connect.
             </p>
             <div className="space-y-4">
               <div className="flex items-center space-x-4">
                 <Briefcase className="w-6 h-6 text-purple-600" />
                 <div>
                   <h3 className="font-semibold">Experience</h3>
-                  <p className="text-gray-600">8+ years in UI/UX Design</p>
+                  <p className="text-gray-600">2+ years in UI/UX Design</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
                 <Award className="w-6 h-6 text-purple-600" />
                 <div>
-                  <h3 className="font-semibold">Recognition</h3>
-                  <p className="text-gray-600">Awwwards Site of the Day</p>
+                  <h3 className="font-semibold">Tools I love</h3>
+                  <p className="text-gray-600">Figma • Adobe Illustrator • Photoshop • Pixelorama • Godot • HTML/CSS • Git • LaTeX</p>
                 </div>
               </div>
               <div className="flex items-center space-x-4">
