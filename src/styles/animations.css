@@ -1,0 +1,33 @@
+/* Shine effect for cards */
+@keyframes shine {
+    0% {
+      background-position: -200% center;
+    }
+    100% {
+      background-position: 200% center;
+    }
+  }
+  
+  .shine-effect {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.2),
+      transparent
+    );
+    background-size: 200% 100%;
+    animation: shine 2s infinite linear;
+    pointer-events: none;
+  }
+  
+  /* Add more smooth transitions for hover states */
+  .group:hover .group-hover\:scale-110 {
+    transition-delay: 0.05s;
+  }
+  
+  /* Enable hardware acceleration for smoother animations */
+  .transform {
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-font-smoothing: subpixel-antialiased;
+  }
