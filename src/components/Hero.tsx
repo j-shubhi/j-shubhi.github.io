@@ -3,8 +3,20 @@ import { ChevronDown } from 'lucide-react';
 import PingPong from './PingPong';
 
 export default function Hero() {
+  const currentHour = new Date().getHours();
+  // const currentHour = 19;
+  let themeClass = '';
+
+  if (currentHour >= 6 && currentHour < 12) {
+    themeClass = 'bg-gradient-to-br from-yellow-50 to-orange-50'; // Morning 6-11
+  } else if (currentHour >= 12 && currentHour < 18) {
+    themeClass = 'bg-gradient-to-br from-blue-50 to-indigo-50'; // Afternoon 12-17
+  } else {
+    themeClass = 'bg-gradient-to-br from-gray-800 to-black text-white'; // Night 18-5
+  }
+
   return (
-    <section className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-indigo-50 to-purple-50">
+    <section className={`min-h-screen flex items-center justify-center relative ${themeClass}`}>
       <PingPong />
       <div className="text-center px-4 relative z-10 pointer-events-none">
         <h1 className="text-6xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-600">
