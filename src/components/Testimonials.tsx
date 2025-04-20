@@ -41,10 +41,7 @@ export default function Testimonials() {
           const dataWithPlaceholders = result.data
             .filter((testimonial) => testimonial.name && testimonial.text) // Filter out empty boxes
             .map((testimonial) => {
-              const googleDriveImageBaseUrl = 'https://drive.google.com/uc?export=view&id=';
-              const imageUrl = testimonial.image?.includes('drive.google.com')
-                ? googleDriveImageBaseUrl + testimonial.image.split('id=')[1]
-                : testimonial.image || '/path/to/placeholder-image.png';
+              const imageUrl = '/src/assets/images/shubhi_watermark.png';
 
               return {
                 ...testimonial,
@@ -115,6 +112,16 @@ export default function Testimonials() {
               </motion.div>
             ))}
           </motion.div>
+        </div>
+        <div className="text-center mt-8">
+          <a
+            href="https://forms.gle/j7NDYeQmDhup7v4e8"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-6 py-3 bg-purple-600 text-white font-semibold rounded-lg shadow-md hover:bg-purple-700 transition"
+          >
+            Submit Your Testimonial
+          </a>
         </div>
       </div>
     </section>
