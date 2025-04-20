@@ -11,10 +11,15 @@ import Navbar from './components/Navbar';
 import SparklingCursor from './components/SparklingCursor';
 import ARHeadgear from './components/ARHeadgear';
 import Testimonials from './components/Testimonials';
+import BackgroundAudio from './components/BackgroundAudio';
+import useGlobalHapticFeedback from './hooks/useGlobalHapticFeedback';
 
 function App() {
+  useGlobalHapticFeedback();
+
   return (
     <div className="min-h-screen bg-white">
+      <BackgroundAudio />
       <SparklingCursor />
       <Navbar />
       <div className="transition-all duration-300">

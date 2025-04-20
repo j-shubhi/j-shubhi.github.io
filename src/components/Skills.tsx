@@ -1,8 +1,27 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Skills } from '../data/skills';
 import SkillCard from './SkillCard';
 
 const SkillsSection: React.FC = () => {
+  useEffect(() => {
+    const handleTouchStart = () => {
+      if (navigator.vibrate) {
+        navigator.vibrate(50); // Simulate haptic feedback on touch
+      }
+    };
+
+    const skillCards = document.querySelectorAll('.skill-card');
+    skillCards.forEach((card) => {
+      card.addEventListener('touchstart', handleTouchStart);
+    });
+
+    return () => {
+      skillCards.forEach((card) => {
+        card.removeEventListener('touchstart', handleTouchStart);
+      });
+    };
+  }, []);
+
   return (
     <section className="py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-6xl mx-auto px-4">
@@ -17,7 +36,7 @@ const SkillsSection: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {Skills.map((skill) => (
-            <SkillCard key={skill.id} skill={skill} />
+            <SkillCard key={skill.id} skill={skill} className="skill-card" />
           ))}
         </div>
       </div>
