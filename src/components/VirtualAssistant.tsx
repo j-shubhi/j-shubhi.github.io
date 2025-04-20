@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle, X, ChevronRight } from 'lucide-react';
 
@@ -31,9 +31,38 @@ const messages: Message[] = [
   }
 ];
 
-export default function VirtualAssistant() {
+const getTimeOfDayGreeting = () => {
+  const currentHour = new Date().getHours();
+  if (currentHour >= 6 && currentHour < 12) return 'Good Morning!';
+  if (currentHour >= 12 && currentHour < 18) return 'Good Afternoon!';
+  return 'Good Evening!';
+};
+
+const getMoodBasedMessage = (mood: 'happy' | 'neutral' | 'sad') => {
+  switch (mood) {
+    case 'happy':
+      return "I'm glad you're feeling happy! Let's make your day even better.";
+    case 'neutral':
+      return "Feeling neutral? Let me brighten your day with some insights.";
+    case 'sad':
+      return "I'm here to help. Let's find something uplifting together.";
+    default:
+      return "How can I assist you today?";
+  }
+};
+
+export default function VirtualAssistant({ mood }: { mood: 'happy' | 'neutral' | 'sad' }) {
   const [isOpen, setIsOpen] = useState(false);
   const [currentMessage, setCurrentMessage] = useState(0);
+  const [greeting, setGreeting] = useState(getTimeOfDayGreeting());
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setGreeting(getTimeOfDayGreeting());
+    }, 6000); // Update greeting every minute
+
+    return () => clearInterval(interval);
+  }, []);
 
   const nextMessage = () => {
     setCurrentMessage((prev) => (prev + 1) % messages.length);
@@ -60,6 +89,7 @@ export default function VirtualAssistant() {
                 <MessageCircle className="w-6 h-6 text-purple-600" />
               </div>
               <div className="flex-1">
+                <p className="text-sm text-gray-600 mb-3">{greeting} {getMoodBasedMessage(mood)}</p>
                 <p className="text-sm text-gray-600 mb-3">{messages[currentMessage].text}</p>
                 <div className="space-y-2">
                   {messages[currentMessage].links?.map((link, index) => (
@@ -86,7 +116,6 @@ export default function VirtualAssistant() {
           </motion.div>
         )}
       </AnimatePresence>
-      
       <motion.button
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}

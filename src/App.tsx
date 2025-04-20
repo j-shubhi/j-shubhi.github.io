@@ -24,7 +24,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-white">
-      <BackgroundAudio />
+      
       <SparklingCursor />
       <Navbar />
       <div className="transition-all duration-300">
@@ -54,6 +54,7 @@ function App() {
           <Testimonials />
         </section>
         <VirtualAssistant />
+        <BackgroundAudio />
         <MRPortfolioViewer />
         <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
           <ARHeadgear />
