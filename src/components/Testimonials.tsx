@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue, useTransform, animate } from 'framer-motion';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { motion, useMotionValue } from 'framer-motion';
+import { Star } from 'lucide-react';
 
 const testimonials = [
   {
@@ -38,12 +38,11 @@ const testimonials = [
 ];
 
 export default function Testimonials() {
-  const [isDragging, setIsDragging] = useState(false);
   const [isInteracting, setIsInteracting] = useState(false);
   const interactionTimeoutRef = useRef<NodeJS.Timeout>();
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
-  const baseVelocity = -100;
+  const baseVelocity = -500; // Increased speed of scroll
 
   const constraintsRef = useRef<HTMLDivElement>(null);
 
@@ -64,41 +63,6 @@ export default function Testimonials() {
     }, 2000);
   };
 
-  const handleMouseDown = () => {
-    setIsDragging(true);
-    setIsInteracting(true);
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grabbing';
-    }
-  };
-
-  const handleMouseUp = () => {
-    setIsDragging(false);
-    if (containerRef.current) {
-      containerRef.current.style.cursor = 'grab';
-    }
-    resetInteractionAfterDelay();
-  };
-
-  const scroll = (direction: number) => {
-    setIsInteracting(true);
-    if (containerRef.current) {
-      const newX = x.get() + direction * 400;
-      animate(x, newX, {
-        type: "spring",
-        stiffness: 300,
-        damping: 30
-      });
-    }
-    resetInteractionAfterDelay();
-  };
-
-  const opacity = useTransform(
-    x,
-    [-1000, 0, 1000],
-    [0.5, 1, 0.5]
-  );
-
   const repeatedTestimonials = [...testimonials, ...testimonials, ...testimonials];
 
   return (
@@ -107,36 +71,15 @@ export default function Testimonials() {
         <h2 className="text-4xl font-bold text-center mb-12">Client Testimonials</h2>
         
         <div className="relative" ref={constraintsRef}>
-          <div className="absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white to-transparent z-10" />
-          <div className="absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white to-transparent z-10" />
           
-          <button
-            onClick={() => scroll(1)}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
-          >
-            <ChevronLeft className="w-6 h-6 text-purple-600" />
-          </button>
-          
-          <button
-            onClick={() => scroll(-1)}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/80 p-2 rounded-full shadow-lg hover:bg-white transition-colors"
-          >
-            <ChevronRight className="w-6 h-6 text-purple-600" />
-          </button>
-
           <motion.div
             ref={containerRef}
-            className="flex gap-6 py-4 cursor-grab"
-            style={{ x, opacity }}
-            drag="x"
-            dragConstraints={constraintsRef}
-            onMouseDown={handleMouseDown}
-            onMouseUp={handleMouseUp}
-            onDragEnd={handleMouseUp}
-            animate={isInteracting ? undefined : {
+            className="flex gap-6 py-4"
+            style={{ x }}
+            animate={{
               x: [0, baseVelocity * testimonials.length],
             }}
-            transition={isInteracting ? undefined : {
+            transition={{
               x: {
                 repeat: Infinity,
                 repeatType: "loop",
