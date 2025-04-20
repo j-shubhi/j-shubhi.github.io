@@ -1,5 +1,5 @@
-##Download zip
-##open in editor or terminal and execute these
-##Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
-##npm install
-##npm run dev
+1. Download zip
+2. open in editor or terminal and execute these
+3. Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+4. npm install
+5. npm run dev
