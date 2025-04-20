@@ -31,15 +31,16 @@ function App() {
         <section id="hero">
           <Hero />
         </section>
+        <section id="about">
+          <About />
+        </section>
         <div className="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg mb-16 flex flex-col items-center">
           <MoodSelector currentMood={mood} onMoodChange={setMood} />
           <div className="w-full flex justify-center items-center">
             <PandaAnimation mood={mood} />
           </div>
         </div>
-        <section id="about">
-          <About />
-        </section>
+        
         <section id="portfolio">
           <Portfolio />
         </section>

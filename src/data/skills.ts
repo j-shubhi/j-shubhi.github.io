@@ -23,18 +23,18 @@ import {
     {
       id: 1,
       name: 'UI Design',
-      description: 'Creating beautiful, intuitive interfaces with Figma and modern design tools.',
+      description: 'Creating beautiful, intuitive interfaces with Figma, Adobe Illustrator, Adobe Photoshop.',
       icon: Figma,
       color: '#0070F3',
       expertise: {
-        years: 5,
-        totalProjects: 45,
-        category: 'Expert'
+        years: 1.5,
+        totalProjects: 3,
+        category: 'More than Intermediate'
       },
       projects: [
-        'E-commerce Design System',
-        'Mobile Banking App',
-        'Healthcare Dashboard'
+        'Website Designer for start-ups',
+        'Personal Site of a Professor',
+        'Club Website'
       ]
     },
     {
@@ -44,14 +44,13 @@ import {
       icon: Code,
       color: '#6D28D9',
       expertise: {
-        years: 4,
-        totalProjects: 38,
-        category: 'Advanced'
+        years: 2,
+        totalProjects: 2,
+        category: 'Intermediate'
       },
       projects: [
-        'User Testing Framework',
-        'Accessibility Audit',
-        'User Journey Mapping'
+        'Research for IIITD infrastructure',
+        'Stuble Burning effects on Delhi\'s air',
       ]
     },
     {
@@ -61,14 +60,15 @@ import {
       icon: PenTool,
       color: '#F59E0B',
       expertise: {
-        years: 3,
-        totalProjects: 25,
-        category: 'Advanced'
+        years: 1,
+        totalProjects: 2,
+        category: 'Beginner'
       },
       projects: [
-        'Brand Illustration System',
-        'Product Icons',
-        'Marketing Visuals'
+        'Tech Council Logo',
+        'IIITD buildings vector',
+        'Viksit Bharat',
+        'Convocation Designs'
       ]
     },
     {
@@ -78,14 +78,14 @@ import {
       icon: Palette,
       color: '#10B981',
       expertise: {
-        years: 4,
-        totalProjects: 30,
+        years: 2,
+        totalProjects: 3,
         category: 'Expert'
       },
       projects: [
-        'Brand Guidelines',
-        'Visual Identity System',
-        'Marketing Materials'
+        'Design Summer School',
+        'AI Summer School',
+        'E-Summit'
       ]
     },
     {
@@ -95,31 +95,33 @@ import {
       icon: Layout,
       color: '#EC4899',
       expertise: {
-        years: 5,
-        totalProjects: 50,
-        category: 'Expert'
+        years: 0.5,
+        totalProjects: 3,
+        category: 'Intermediate'
       },
       projects: [
-        'React Component Library',
-        'Design System Implementation',
-        'Performance Optimization'
+        'Personal Portfolio',
+        'Annapravah',
+        'KalaHaat'
       ]
     },
     {
       id: 6,
-      name: 'Web Performance',
-      description: 'Optimizing web applications for speed and user experience.',
+      name: 'Social Media Designer',
+      description: 'Branding of bodies and creating social media posts.',
       icon: Globe,
       color: '#14B8A6',
       expertise: {
-        years: 3,
-        totalProjects: 28,
+        years: 2,
+        totalProjects: 5,
         category: 'Advanced'
       },
       projects: [
-        'Core Web Vitals',
-        'Performance Monitoring',
-        'Load Time Optimization'
+        'CyFuse',
+        'HCD',
+        'Bio Department',
+        'Student Senate',
+        'Convocation'
       ]
     }
   ];

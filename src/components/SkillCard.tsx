@@ -36,9 +36,8 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
         }}
       />
 
-      {/* Card content that also transforms */}
       <div className="relative z-10 h-full flex flex-col p-6">
-        {/* Icon and Title Row */}
+        
         <div className="flex items-center mb-6">
           <div className="relative">
             <div 

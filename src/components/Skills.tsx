@@ -30,7 +30,7 @@ const SkillsSection: React.FC = () => {
             My Skills
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Explore my technical expertise and project experience through this interactive showcase
+            Explore my technical expertise and project experience.
           </p>
         </div>
 
