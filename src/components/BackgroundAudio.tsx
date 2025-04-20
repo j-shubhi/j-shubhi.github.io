@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FaMusic } from 'react-icons/fa';
 
 function BackgroundAudio() {
@@ -24,7 +24,7 @@ function BackgroundAudio() {
 
   return (
     <div>
-      <button onClick={toggleAudio} style={{ position: 'fixed', bottom: '16px', right: '90px', padding: '8px', backgroundColor: isPlaying ? '#FFC0CB' : '#FF0000', color: '#fff', border: 'none', borderRadius: '50%', cursor: 'pointer', boxShadow: '0 6px 10px rgba(0, 0, 0, 0.1)', fontSize: '28px' }}>
+      <button onClick={toggleAudio} style={{ position: 'fixed', bottom: '16px', right: '90px', padding: '8px', backgroundColor: isPlaying ? '#FF69B4' : '#FF0000', color: '#fff', border: 'none', borderRadius: '50%', cursor: 'pointer', boxShadow: '0 6px 10px rgba(0, 0, 0, 0.1)', fontSize: '28px' }}>
         <FaMusic />
       </button>
     </div>

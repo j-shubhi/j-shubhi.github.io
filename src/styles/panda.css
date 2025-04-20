@@ -462,13 +462,13 @@
   
   /* Mood-specific background variations */
   .happy-panda ~ .animation-stage {
-    background: radial-gradient(circle, rgba(255,253,231,1) 0%, rgba(255,248,209,1) 100%);
+    background: radial-gradient(circle, rgba(173, 216, 230, 1) 0%, rgba(135, 206, 250, 1) 100%); /* Light blue background */
   }
   
   .neutral-panda ~ .animation-stage {
-    background: radial-gradient(circle, rgba(240,249,255,1) 0%, rgba(225,240,250,1) 100%);
+    background: radial-gradient(circle, rgba(255, 255, 224, 1) 0%, rgba(255, 250, 205, 1) 100%); /* Light yellow background */
   }
   
   .sad-panda ~ .animation-stage {
-    background: radial-gradient(circle, rgba(248,242,255,1) 0%, rgba(236,226,248,1) 100%);
+    background: radial-gradient(circle, rgba(255, 165, 0, 1) 0%, rgba(255, 140, 0, 1) 100%); /* Orange background */
   }
