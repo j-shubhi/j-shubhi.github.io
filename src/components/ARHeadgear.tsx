@@ -3,19 +3,27 @@ import React, { useState, useEffect, useRef } from 'react';
 const ARHeadgear = () => {
   const [selectedFilter, setSelectedFilter] = useState('wizard');
   const [videoStream, setVideoStream] = useState<MediaStream | null>(null);
+  const [isCameraOn, setIsCameraOn] = useState(true); // New state for camera toggle
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
   useEffect(() => {
-    navigator.mediaDevices.getUserMedia({ video: true })
-      .then(stream => setVideoStream(stream))
-      .catch(err => console.error('Error accessing webcam:', err));
+    if (isCameraOn) {
+      navigator.mediaDevices.getUserMedia({ video: true })
+        .then(stream => setVideoStream(stream))
+        .catch(err => console.error('Error accessing webcam:', err));
+    } else {
+      if (videoStream) {
+        videoStream.getTracks().forEach(track => track.stop());
+        setVideoStream(null);
+      }
+    }
 
     return () => {
       if (videoStream) {
         videoStream.getTracks().forEach(track => track.stop());
       }
     };
-  }, []);
+  }, [isCameraOn]); // Depend on isCameraOn
 
   useEffect(() => {
     if (videoRef.current && videoStream) {
@@ -57,6 +65,12 @@ const ARHeadgear = () => {
             {filter.charAt(0).toUpperCase() + filter.slice(1)}
           </button>
         ))}
+        <button
+          onClick={() => setIsCameraOn(!isCameraOn)}
+          className={`px-4 py-2 rounded-lg ${isCameraOn ? 'bg-red-600 text-white' : 'bg-green-600 text-white'}`}
+        >
+          {isCameraOn ? 'Turn Off Camera' : 'Turn On Camera'}
+        </button>
       </div>
     </div>
   );
