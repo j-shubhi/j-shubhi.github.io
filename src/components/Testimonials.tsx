@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { motion, useMotionValue } from 'framer-motion';
+import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 import { Star } from 'lucide-react';
 import Papa from 'papaparse';
 
@@ -9,9 +9,7 @@ export default function Testimonials() {
   const interactionTimeoutRef = useRef<NodeJS.Timeout>();
   const containerRef = useRef<HTMLDivElement>(null);
   const x = useMotionValue(0);
-  const baseVelocity = -500; // Increased speed of scroll
-
-  const constraintsRef = useRef<HTMLDivElement>(null);
+  const baseSpeed = 100; // ⏩ INCREASE THIS FOR FASTER SCROLL
 
   useEffect(() => {
     return () => {
@@ -39,10 +37,9 @@ export default function Testimonials() {
         header: true,
         complete: (result) => {
           const dataWithPlaceholders = result.data
-            .filter((testimonial) => testimonial.name && testimonial.text) // Filter out empty boxes
+            .filter((testimonial) => testimonial.name && testimonial.text)
             .map((testimonial) => {
               const imageUrl = '/src/assets/images/shubhi_watermark.png';
-
               return {
                 ...testimonial,
                 image: imageUrl,
@@ -59,30 +56,32 @@ export default function Testimonials() {
     fetchTestimonials();
   }, []);
 
+  // 💫 Animate x motion value to scroll infinitely
+  useAnimationFrame((t, delta) => {
+    if (!isInteracting) {
+      const moveBy = -1 * baseSpeed * (delta / 1000); // pixels/frame
+      x.set(x.get() + moveBy);
+    }
+  });
+
   return (
     <section id="testimonials" className="py-20 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4">
         <h2 className="text-4xl font-bold text-center mb-12">Client Testimonials</h2>
-        
-        <div className="relative" ref={constraintsRef}>
-          
+
+        <div className="relative overflow-hidden">
           <motion.div
             ref={containerRef}
             className="flex gap-6 py-4"
             style={{ x }}
-            animate={{
-              x: [0, baseVelocity * testimonials.length],
-            }}
-            transition={{
-              x: {
-                repeat: Infinity,
-                repeatType: "loop",
-                duration: 20,
-                ease: "linear",
-              },
+            onMouseEnter={() => setIsInteracting(true)}
+            onMouseLeave={() => {
+              setIsInteracting(false);
+              resetInteractionAfterDelay();
             }}
           >
-            {testimonials.map((testimonial, index) => (
+            {/* 🔁 Duplicate testimonials to loop infinitely */}
+            {[...testimonials, ...testimonials].map((testimonial, index) => (
               <motion.div
                 key={index}
                 className="flex-shrink-0 w-[400px] bg-purple-50 rounded-xl p-6 shadow-lg"
@@ -113,6 +112,7 @@ export default function Testimonials() {
             ))}
           </motion.div>
         </div>
+
         <div className="text-center mt-8">
           <a
             href="https://forms.gle/j7NDYeQmDhup7v4e8"
