@@ -1,19 +1,34 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { FaMusic } from 'react-icons/fa';
 
 function BackgroundAudio() {
+  const [isPlaying, setIsPlaying] = useState(true);
+
   useEffect(() => {
     const audio = new Audio('/src/assets/audio/ambient.mp3');
     audio.loop = true;
     audio.volume = 1.0; 
-    audio.play();
+    if (isPlaying) {
+      audio.play();
+    }
 
     return () => {
       audio.pause();
       audio.currentTime = 0;
     };
-  }, []);
+  }, [isPlaying]);
 
-  return null;
+  const toggleAudio = () => {
+    setIsPlaying(!isPlaying);
+  };
+
+  return (
+    <div>
+      <button onClick={toggleAudio} style={{ position: 'fixed', bottom: '16px', right: '90px', padding: '8px', backgroundColor: isPlaying ? '#FFC0CB' : '#FF0000', color: '#fff', border: 'none', borderRadius: '50%', cursor: 'pointer', boxShadow: '0 6px 10px rgba(0, 0, 0, 0.1)', fontSize: '28px' }}>
+        <FaMusic />
+      </button>
+    </div>
+  );
 }
 
 export default BackgroundAudio;

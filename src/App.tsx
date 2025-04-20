@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState } from 'react';
 import Hero from './components/Hero';
 import About from './components/About';
 import Portfolio from './components/Portfolio';
@@ -13,8 +13,13 @@ import ARHeadgear from './components/ARHeadgear';
 import Testimonials from './components/Testimonials';
 import BackgroundAudio from './components/BackgroundAudio';
 import useGlobalHapticFeedback from './hooks/useGlobalHapticFeedback';
+import MoodSelector from './components/MoodSelector';
+import PandaAnimation from './components/PandaAnimation';
+import './styles/panda.css';
 
 function App() {
+  const [mood, setMood] = useState<'happy' | 'neutral' | 'sad'>('neutral');
+
   useGlobalHapticFeedback();
 
   return (
@@ -26,6 +31,12 @@ function App() {
         <section id="hero">
           <Hero />
         </section>
+        <div className="max-w-2xl mx-auto bg-white rounded-2xl p-8 shadow-lg mb-16 flex flex-col items-center">
+          <MoodSelector currentMood={mood} onMoodChange={setMood} />
+          <div className="w-full flex justify-center items-center">
+            <PandaAnimation mood={mood} />
+          </div>
+        </div>
         <section id="about">
           <About />
         </section>
@@ -44,7 +55,7 @@ function App() {
         <VirtualAssistant />
         <MRPortfolioViewer />
         <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
-          <ARHeadgear className="max-w-screen" />
+          <ARHeadgear />
         </div>
         <Footer />
       </div>

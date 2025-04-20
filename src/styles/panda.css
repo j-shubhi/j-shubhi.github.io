@@ -1,0 +1,474 @@
+/* Panda Base Styles */
+.animation-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    margin: 0 auto;
+  }
+  
+  .panda {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .panda-body {
+    position: relative;
+    width: 220px;
+    height: 240px;
+    background-color: white;
+    border-radius: 50% 50% 45% 45%;
+    overflow: visible;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  }
+  
+  .panda-head {
+    position: relative;
+    width: 200px;
+    height: 180px;
+    background-color: white;
+    border-radius: 50%;
+    margin: 0 auto;
+    overflow: visible;
+  }
+  
+  .panda-face {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  /* Ears */
+  .ear {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 50%;
+  }
+  
+  .ear.left {
+    top: -15px;
+    left: -10px;
+    transform-origin: center;
+  }
+  
+  .ear.right {
+    top: -15px;
+    right: -10px;
+    transform-origin: center;
+  }
+  
+  /* Eyes */
+  .eyes {
+    position: absolute;
+    top: 60px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  .eye {
+    position: relative;
+    width: 50px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  .pupil {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-color: white;
+    border-radius: 50%;
+    top: 15px;
+  }
+  
+  .eye.left .pupil {
+    right: 5px;
+  }
+  
+  .eye.right .pupil {
+    left: 5px;
+  }
+  
+  .sparkle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    top: 10px;
+    right: 12px;
+    opacity: 0;
+  }
+  
+  /* Nose */
+  .nose {
+    position: absolute;
+    width: 30px;
+    height: 18px;
+    background-color: #333;
+    border-radius: 50%;
+    top: 125px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Mouth */
+  .mouth {
+    position: absolute;
+    width: 60px;
+    height: 30px;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  /* Arms */
+  .arms {
+    position: absolute;
+    width: 100%;
+    top: 100px;
+  }
+  
+  .arm {
+    position: absolute;
+    width: 40px;
+    height: 80px;
+    background-color: #333;
+    border-radius: 20px;
+  }
+  
+  .arm.left {
+    left: -20px;
+    transform-origin: top center;
+  }
+  
+  .arm.right {
+    right: -20px;
+    transform-origin: top center;
+  }
+  
+  /* Legs */
+  .legs {
+    position: absolute;
+    width: 100%;
+    bottom: -40px;
+  }
+  
+  .leg {
+    position: absolute;
+    width: 40px;
+    height: 60px;
+    background-color: #333;
+    border-radius: 20px;
+    bottom: 0;
+  }
+  
+  .leg.left {
+    left: 50px;
+  }
+  
+  .leg.right {
+    right: 50px;
+  }
+  
+  /* Happy Panda Animations */
+  .happy-panda {
+    animation: bounce 2s infinite;
+  }
+  
+  .happy-pupil {
+    animation: happy-eyes 2s infinite;
+  }
+  
+  .happy-mouth {
+    height: 30px;
+    width: 80px;
+    border-radius: 0 0 100px 100px;
+    background-color: #333;
+    transform: translateY(-0px) translateX(-50%);
+    left: 50%;
+    position: absolute;
+  }
+  
+  .happy-cheek {
+    position: absolute;
+    width: 30px;
+    height: 15px;
+    background-color: rgba(255, 182, 193, 0.6);
+    border-radius: 50%;
+    top: -5px;
+    transform: translateX(-50%);
+  }
+  
+  .happy-cheek.left {
+    left: 150%;
+  }
+  
+  .happy-cheek.right {
+    right: 100%;
+  }
+  
+  .happy-arm-left {
+    animation: wave-left 2s infinite;
+  }
+  
+  .happy-arm-right {
+    animation: wave-right 2s infinite;
+  }
+  
+  .happy-leg-left, .happy-leg-right {
+    animation: happy-legs 2s infinite alternate;
+  }
+  
+  .sparkle {
+    animation: sparkle 2s infinite;
+  }
+  
+  /* Neutral Panda Animations */
+  .neutral-panda {
+    animation: breathe 4s infinite;
+  }
+  
+  .neutral-pupil {
+    animation: blink 4s infinite;
+  }
+  
+  .neutral-mouth {
+    width: 40px;
+    height: 6px;
+    background-color: #333;
+    border-radius: 10px;
+  }
+  
+  .neutral-arm-left, .neutral-arm-right {
+    animation: sway 4s infinite alternate;
+  }
+  
+  /* Sad Panda Animations */
+  .sad-panda {
+    animation: droop 3s infinite alternate;
+  }
+  
+  .sad-head {
+    animation: hang-head 3s infinite alternate;
+  }
+  
+  .sad-pupil {
+    animation: sad-eyes 3s infinite;
+  }
+  
+  .sad-mouth {
+    width: 60px;
+    height: 20px;
+    border-radius: 100px 100px 0 0;
+    border: 4px solid #333;
+    border-bottom: none;
+    box-sizing: border-box;
+  }
+  
+  .tear {
+    position: absolute;
+    width: 10px;
+    height: 20px;
+    background-color: rgba(135, 206, 250, 0.7);
+    border-radius: 50%;
+    bottom: -20px;
+    animation: tears 3s infinite;
+    opacity: 0;
+  }
+  
+  .tear.left {
+    left: 10px;
+    animation-delay: 0.5s;
+  }
+  
+  .tear.right {
+    right: 10px;
+    animation-delay: 1.5s;
+  }
+  
+  .sad-arm-left, .sad-arm-right {
+    animation: droopy-arms 3s infinite alternate;
+  }
+  
+  /* Keyframe Animations */
+  @keyframes bounce {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+  
+  @keyframes happy-eyes {
+    0%, 10%, 25%, 100% {
+      height: 30px;
+      top: 15px;
+    }
+    15%, 20% {
+      height: 5px;
+      top: 25px;
+    }
+  }
+  
+  @keyframes wave-left {
+    0%, 100% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(30deg);
+    }
+  }
+  
+  @keyframes wave-right {
+    0%, 100% {
+      transform: rotate(10deg);
+    }
+    50% {
+      transform: rotate(-30deg);
+    }
+  }
+  
+  @keyframes happy-legs {
+    0%, 100% {
+      transform: rotate(-5deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+  
+  @keyframes sparkle {
+    0%, 40%, 100% {
+      opacity: 0;
+    }
+    50%, 90% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes breathe {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.02);
+    }
+  }
+  
+  @keyframes blink {
+    0%, 95%, 100% {
+      height: 30px;
+      top: 15px;
+    }
+    97%, 98% {
+      height: 5px;
+      top: 25px;
+    }
+  }
+  
+  @keyframes sway {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+  
+  @keyframes droop {
+    0%, 100% {
+      transform: translateY(5px);
+    }
+    50% {
+      transform: translateY(10px);
+    }
+  }
+  
+  @keyframes hang-head {
+    0%, 100% {
+      transform: rotate(0deg);
+    }
+    50% {
+      transform: rotate(5deg);
+    }
+  }
+  
+  @keyframes sad-eyes {
+    0%, 10%, 100% {
+      height: 25px;
+      top: 20px;
+    }
+    15%, 20% {
+      height: 5px;
+      top: 25px;
+    }
+  }
+  
+  @keyframes tears {
+    0%, 20% {
+      opacity: 0;
+      transform: translateY(0);
+    }
+    40%, 80% {
+      opacity: 0.8;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+  }
+  
+  @keyframes droopy-arms {
+    0%, 100% {
+      transform: rotate(-10deg);
+    }
+    50% {
+      transform: rotate(-5deg);
+    }
+  }
+  
+  /* Animation Stage Styling */
+  .animation-stage {
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(245,245,245,1) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
+    transition: all 0.5s ease;
+  }
+  
+  .panda-animation-wrapper {
+    display: flex;
+    justify-content: center;
+    transition: transform 0.5s ease;
+  }
+  
+  /* Mood-specific background variations */
+  .happy-panda ~ .animation-stage {
+    background: radial-gradient(circle, rgba(255,253,231,1) 0%, rgba(255,248,209,1) 100%);
+  }
+  
+  .neutral-panda ~ .animation-stage {
+    background: radial-gradient(circle, rgba(240,249,255,1) 0%, rgba(225,240,250,1) 100%);
+  }
+  
+  .sad-panda ~ .animation-stage {
+    background: radial-gradient(circle, rgba(248,242,255,1) 0%, rgba(236,226,248,1) 100%);
+  }
