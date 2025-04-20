@@ -9,13 +9,15 @@ import VirtualAssistant from './components/VirtualAssistant';
 import MRPortfolioViewer from './components/MRPortfolioViewer';
 import Navbar from './components/Navbar';
 import SparklingCursor from './components/SparklingCursor';
+import ARHeadgear from './components/ARHeadgear';
+import Testimonials from './components/Testimonials';
 
 function App() {
   return (
     <div className="min-h-screen bg-white">
       <SparklingCursor />
       <Navbar />
-      <div className="ml-20 transition-all duration-300">
+      <div className="transition-all duration-300">
         <section id="hero">
           <Hero />
         </section>
@@ -31,9 +33,15 @@ function App() {
         <section id="contact">
           <Contact />
         </section>
-        <Footer />
+        <section id="contact">
+          <Testimonials />
+        </section>
         <VirtualAssistant />
         <MRPortfolioViewer />
+        <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
+          <ARHeadgear className="max-w-screen" />
+        </div>
+        <Footer />
       </div>
     </div>
   );
