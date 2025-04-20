@@ -4,24 +4,24 @@ import { motion, AnimatePresence } from 'framer-motion';
 const projects = [
   {
     id: 1,
-    title: 'E-commerce Redesign',
+    title: 'Promotion Design',
     category: 'UI/UX',
     image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800',
-    description: 'Complete redesign of an e-commerce platform focusing on user experience and conversion optimization.',
+    description: 'Complete design of an CiPD course(under DPP course, Prof. Anmol Srivastava).',
   },
   {
     id: 2,
     title: 'Brand Identity',
     category: 'Branding',
     image: 'https://images.unsplash.com/photo-1634942537034-2531766767d1?auto=format&fit=crop&q=80&w=800',
-    description: 'Brand identity design for a sustainable fashion company.',
+    description: 'Brand identity design for Design Summer Scool.',
   },
   {
     id: 3,
-    title: 'Mobile App Design',
+    title: 'Social Media Design',
     category: 'UI/UX',
     image: 'https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&q=80&w=800',
-    description: 'Health and wellness app design focusing on user engagement and habit formation.',
+    description: 'Post designs for Clubs, Senate, Student Bodies, E-Cell.',
   },
 ];
 

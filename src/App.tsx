@@ -54,12 +54,13 @@ function App() {
           <Testimonials />
         </section>
         <VirtualAssistant />
-        <BackgroundAudio />
+        
         <MRPortfolioViewer />
         <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
           <ARHeadgear />
         </div>
         <Footer />
+        <BackgroundAudio />
       </div>
     </div>
   );

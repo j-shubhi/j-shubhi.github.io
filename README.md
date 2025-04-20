@@ -80,9 +80,34 @@
    - **Implementation**: Uses `framer-motion` for animations and `IntersectionObserver` for active section detection.
    - **Libraries Used**: `framer-motion`.
 
+### 13. **Geo-Time Based Hero Section Background**
+   - **Description**: Dynamically changes the Hero section background based on the user's current time and location.
+   - **How to Interact**: The background updates automatically based on your local time (e.g., sunrise, sunset, night).
+   - **Implementation**: Uses the `geolocation` API to fetch the user's location and the `Date` object to determine the time. Backgrounds are updated dynamically using CSS classes.
+   - **Libraries Used**: None.
+
+### 14. **Responsive Navbar and Website**
+   - **Description**: Ensures the entire website, including the Navbar, is fully responsive across devices.
+   - **How to Interact**: The Navbar adapts to screen size. On smaller screens, use the toggle button to expand or collapse the menu.
+   - **Implementation**: Uses Tailwind CSS for responsive design and `framer-motion` for smooth animations.
+   - **Libraries Used**: `framer-motion`, `tailwindcss`.
+
+### 15. **Hierarchy and Cognition**
+   - **Description**: Implements a hierarchical structure in the UI to enhance cognitive understanding and navigation.
+   - **How to Interact**: Navigate through nested sections (e.g., Skills, Portfolio) to explore content in a structured manner. Breadcrumbs and collapsible menus guide the user.
+   - **Implementation**: Uses React components for hierarchical rendering and Tailwind CSS for styling. Breadcrumbs are dynamically generated based on the current route.
+   - **Libraries Used**: `react`, `tailwindcss`.
+
+### 16. **Perception & Navigation**
+   - **Description**: Enhances user perception and navigation through visual cues and interactive elements.
+   - **How to Interact**: Use the sparkling cursor to follow visual trails. Navigate through sections using the responsive Navbar and breadcrumbs.
+   - **Implementation**: The sparkling cursor is implemented using `framer-motion` for animations. Breadcrumbs are dynamically generated based on the current route, and the Navbar adapts to screen size using Tailwind CSS.
+   - **Libraries Used**: `framer-motion`, `tailwindcss`.
+
 ### References
 - **framer-motion**: For animations and transitions.
 - **papaparse**: For parsing CSV data from Google Sheets.
 - **@react-three/fiber** and **@react-three/xr**: For 3D and AR rendering.
 - **emailjs-com**: For email functionality.
 - **lucide-react**: For icons.
+- **tailwindcss**: For responsive design.

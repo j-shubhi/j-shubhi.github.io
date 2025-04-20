@@ -3,8 +3,8 @@ import { ChevronDown } from 'lucide-react';
 import PingPong from './PingPong';
 
 export default function Hero() {
-  const currentHour = new Date().getHours();
-  // const currentHour = 19;
+  // const currentHour = new Date().getHours();
+  const currentHour = 7;
   let themeClass = '';
 
   if (currentHour >= 6 && currentHour < 12) {
@@ -35,7 +35,7 @@ export default function Hero() {
           </a>
         </div>
       </div>
-      <a href="#about" className="absolute bottom-8 left-[55%] transform -translate-x-1/2 animate-bounce z-10 pointer-events-auto">
+      <a href="#about" className="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce z-10 pointer-events-auto">
         <ChevronDown className="w-8 h-8 text-purple-600" />
       </a>
     </section>
