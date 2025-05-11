@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const projects = [
@@ -33,15 +33,15 @@ export default function Portfolio() {
   const [deviceTilt, setDeviceTilt] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    const handleDeviceMotion = (event: DeviceMotionEvent) => {
+    const handleDeviceMotion = (event: DeviceOrientationEvent) => {
       const { gamma, beta } = event;
       if (gamma !== null && beta !== null) {
         setDeviceTilt({ x: gamma / 90, y: beta / 90 });
       }
     };
 
-    window.addEventListener('deviceorientation', handleDeviceMotion);
-    return () => window.removeEventListener('deviceorientation', handleDeviceMotion);
+    window.addEventListener('deviceorientation', handleDeviceMotion as EventListener);
+    return () => window.removeEventListener('deviceorientation', handleDeviceMotion as EventListener);
   }, []);
 
   const filteredProjects = activeCategory === 'All'

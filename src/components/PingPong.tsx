@@ -13,11 +13,9 @@ export default function PingPong() {
   const ballVelocityY = useRef(5);
   
   const paddleX = useMotionValue(0);
-  const paddleY = useMotionValue(0);
-  
+    
   const springPaddleX = useSpring(paddleX, { stiffness: 1000, damping: 50 });
-  const springPaddleY = useSpring(paddleY, { stiffness: 1000, damping: 50 });
-  
+    
   const ballScale = useTransform(
     ballY,
     [0, containerBounds.height],
@@ -91,8 +89,7 @@ export default function PingPong() {
     const y = e.clientY - bounds.top;
     
     paddleX.set(Math.max(50, Math.min(x, containerBounds.width - 50)));
-    paddleY.set(y);
-  };
+      };
 
   const startGame = () => {
     if (gameStarted) return;

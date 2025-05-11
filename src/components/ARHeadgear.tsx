@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const ARHeadgear = () => {
   const [selectedFilter, setSelectedFilter] = useState('wizard');
@@ -31,10 +31,10 @@ const ARHeadgear = () => {
     }
   }, [videoStream]);
 
-  const filters = {
-    wizard: '/assets/images/wizard_hat.png',
-    hacker: '/assets/images/hacker_helmet.png',
-    astronaut: '/assets/images/astronaut_helmet.png',
+  const filters: { [key: string]: string } = {
+    wizard: 'wizard.png',
+    hacker: 'hacker.png',
+    astronaut: 'astronaut.png',
   };
 
   return (

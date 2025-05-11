@@ -1,10 +1,9 @@
-import React from 'react';
 import { ChevronDown } from 'lucide-react';
 import PingPong from './PingPong';
 
 export default function Hero() {
-  // const currentHour = new Date().getHours();
-  const currentHour = 7;
+  const currentHour = new Date().getHours();
+  // const currentHour = 7;
   let themeClass = '';
 
   if (currentHour >= 6 && currentHour < 12) {

@@ -9,7 +9,7 @@ import VirtualAssistant from './components/VirtualAssistant';
 import MRPortfolioViewer from './components/MRPortfolioViewer';
 import Navbar from './components/Navbar';
 import SparklingCursor from './components/SparklingCursor';
-import ARHeadgear from './components/ARHeadgear';
+// import ARHeadgear from './components/ARHeadgear';
 import Testimonials from './components/Testimonials';
 import BackgroundAudio from './components/BackgroundAudio';
 import useGlobalHapticFeedback from './hooks/useGlobalHapticFeedback';
@@ -53,12 +53,12 @@ function App() {
         <section id="contact">
           <Testimonials />
         </section>
-        <VirtualAssistant />
+        <VirtualAssistant mood="happy" />
         
         <MRPortfolioViewer />
-        <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
+        {/* <div className="w-screen h-screen flex justify-center items-center bg-gray-100">
           <ARHeadgear />
-        </div>
+        </div> */}
         <Footer />
         <BackgroundAudio />
       </div>

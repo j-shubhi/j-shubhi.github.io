@@ -58,9 +58,13 @@ export default function Testimonials() {
 
   // 💫 Animate x motion value to scroll infinitely
   useAnimationFrame((t, delta) => {
-    if (!isInteracting) {
-      const moveBy = -1 * baseSpeed * (delta / 1000); // pixels/frame
-      x.set(x.get() + moveBy);
+    const containerWidth = containerRef.current?.offsetWidth || 0;
+    const contentWidth = (testimonials.length * 400) * 2; // Adjust based on card width and duplication
+
+    if (x.get() <= -contentWidth / 2) {
+      x.set(0);
+    } else {
+      x.set(x.get() - (baseSpeed * (delta / 1000)));
     }
   });
 
@@ -74,17 +78,12 @@ export default function Testimonials() {
             ref={containerRef}
             className="flex gap-6 py-4"
             style={{ x }}
-            onMouseEnter={() => setIsInteracting(true)}
-            onMouseLeave={() => {
-              setIsInteracting(false);
-              resetInteractionAfterDelay();
-            }}
           >
-            {/* 🔁 Duplicate testimonials to loop infinitely */}
+            {/* Duplicate testimonials to create infinite loop */}
             {[...testimonials, ...testimonials].map((testimonial, index) => (
               <motion.div
                 key={index}
-                className="flex-shrink-0 w-[400px] bg-purple-50 rounded-xl p-6 shadow-lg"
+                className="flex-shrink-0 w-[90%] sm:w-[400px] bg-purple-50 rounded-xl p-6 shadow-lg mx-auto"
                 whileHover={{ scale: 1.02, y: -5 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >

@@ -56,7 +56,7 @@ export default function MRPortfolioViewer() {
           className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
           onClick={() => setShowIntro(false)}
         >
-          <div className="bg-white p-6 rounded-lg max-w-md mx-4">
+          {/* <div className="bg-white p-6 rounded-lg max-w-md mx-4">
             <h3 className="text-xl font-bold mb-4">Experience Portfolio in AR</h3>
             <p className="text-gray-600 mb-4">
               Point your camera at a flat surface to place and interact with 3D versions of my projects in your space.
@@ -67,7 +67,7 @@ export default function MRPortfolioViewer() {
             >
               Got it
             </button>
-          </div>
+          </div> */}
         </motion.div>
       )}
 
