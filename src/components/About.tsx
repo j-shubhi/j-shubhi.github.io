@@ -1,4 +1,3 @@
-import React from 'react';
 import { Award, Briefcase, Heart } from 'lucide-react';
 
 export default function About() {
@@ -8,7 +7,7 @@ export default function About() {
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <div>
             <img
-              src="src\assets\images\shubhi_edited (2).png"
+              src="\assets\images\shubhi_pfp.png"
               alt="Shubhi Jain"
               className="rounded-2xl shadow-lg"
             />

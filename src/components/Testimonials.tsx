@@ -39,7 +39,7 @@ export default function Testimonials() {
           const dataWithPlaceholders = result.data
             .filter((testimonial) => testimonial.name && testimonial.text)
             .map((testimonial) => {
-              const imageUrl = '/src/assets/images/shubhi_watermark.png';
+              const imageUrl = '/assets/images/shubhi_watermark.png';
               return {
                 ...testimonial,
                 image: imageUrl,

@@ -32,9 +32,9 @@ const ARHeadgear = () => {
   }, [videoStream]);
 
   const filters = {
-    wizard: '/src/assets/images/wizard_hat.png',
-    hacker: '/src/assets/images/hacker_helmet.png',
-    astronaut: '/src/assets/images/astronaut_helmet.png',
+    wizard: '/assets/images/wizard_hat.png',
+    hacker: '/assets/images/hacker_helmet.png',
+    astronaut: '/assets/images/astronaut_helmet.png',
   };
 
   return (
