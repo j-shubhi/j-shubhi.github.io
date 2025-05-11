@@ -1,6 +1,6 @@
 
 import { motion, AnimatePresence } from 'framer-motion';
-import { NavItem } from './types';
+import { NavItem } from './types.ts';
 
 interface DesktopNavItemProps {
   item: NavItem;

@@ -3,8 +3,17 @@ import { motion, useMotionValue, useAnimationFrame } from 'framer-motion';
 import { Star } from 'lucide-react';
 import Papa from 'papaparse';
 
+// Define the type for a testimonial
+interface Testimonial {
+  name: string;
+  role: string;
+  rating: number;
+  text: string;
+  image: string;
+}
+
 export default function Testimonials() {
-  const [testimonials, setTestimonials] = useState([]);
+  const [testimonials, setTestimonials] = useState<Testimonial[]>([]);
   const [isInteracting, setIsInteracting] = useState(false);
   const interactionTimeoutRef = useRef<NodeJS.Timeout>();
   const containerRef = useRef<HTMLDivElement>(null);
@@ -35,7 +44,7 @@ export default function Testimonials() {
 
       Papa.parse(csvText, {
         header: true,
-        complete: (result) => {
+        complete: (result: { data: any[] }) => {
           const dataWithPlaceholders = result.data
             .filter((testimonial) => testimonial.name && testimonial.text)
             .map((testimonial) => {
@@ -43,11 +52,11 @@ export default function Testimonials() {
               return {
                 ...testimonial,
                 image: imageUrl,
-              };
+              } as Testimonial;
             });
           setTestimonials(dataWithPlaceholders);
         },
-        error: (error) => {
+        error: (error: Error) => {
           console.error('Error parsing CSV:', error);
         },
       });
@@ -57,7 +66,7 @@ export default function Testimonials() {
   }, []);
 
   // 💫 Animate x motion value to scroll infinitely
-  useAnimationFrame((t, delta) => {
+  useAnimationFrame((_, delta) => {
     const containerWidth = containerRef.current?.offsetWidth || 0;
     const contentWidth = (testimonials.length * 400) * 2; // Adjust based on card width and duplication
 
@@ -99,7 +108,7 @@ export default function Testimonials() {
                   </div>
                 </div>
                 <div className="flex mb-3">
-                  {Array.from({ length: Number(testimonial.rating) }).map((_, i) => (
+                  {Array.from({ length: testimonial.rating }).map((_, i) => (
                     <Star
                       key={i}
                       className="w-4 h-4 text-yellow-400 fill-current"

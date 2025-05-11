@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Home, User, Briefcase, Code, Mail, ChevronRight } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { NavItem } from './types';
-import { DesktopNavItem, MobileNavItem } from './NavItem';
+import { NavItem } from './types.ts';
+import { DesktopNavItem, MobileNavItem } from './NavItem.tsx';
 
 export default function Navbar() {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -67,7 +67,7 @@ export default function Navbar() {
 
       {/* Desktop Sidebar */}
       <motion.nav
-        className="fixed left-0 top-0 h-full bg-white shadow-lg z-40 hidden md:flex flex-col items-center justify-start py-8"
+        className="fixed left-0 top-0 h-full bg-white shadow-lg z-40 !hidden md:!flex flex-col items-center justify-start py-8"
         animate={{
           width: isExpanded ? '200px' : '80px',
         }}

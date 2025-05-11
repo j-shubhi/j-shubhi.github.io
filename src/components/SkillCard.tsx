@@ -4,9 +4,10 @@ import { useCardTransform } from '../hooks/useCardTransform';
 
 interface SkillCardProps {
   skill: Skill;
+  className?: string; // Allow className as an optional prop
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
+const SkillCard: React.FC<SkillCardProps> = ({ skill, className }) => {
   const cardRef = useRef<HTMLDivElement>(null);
   const [isExpanded, setIsExpanded] = useState(false);
   const { style, handleMouseMove, handleMouseLeave, handleMouseEnter, handleTouchStart, handleTouchMove, handleTouchEnd } = 
@@ -18,7 +19,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ skill }) => {
   return (
     <div
       ref={cardRef}
-      className="group relative h-96 rounded-2xl bg-white shadow-lg overflow-hidden transform transition-all duration-500 ease-out cursor-pointer"
+      className={`group relative h-96 rounded-2xl bg-white shadow-lg overflow-hidden transform transition-all duration-500 ease-out cursor-pointer ${className}`}
       style={style}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
